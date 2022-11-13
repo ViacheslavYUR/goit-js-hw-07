@@ -12,13 +12,21 @@ galleryContainer.insertAdjacentHTML("beforeend", galleryMarkup);
 function createGalleryItemsMarkup(img) {
   return img
     .map(({ preview, original, description }) => {
-      return `<li class="gallery__item">
-      <a class="gallery__item" href="${original}" onclick="return false" rel="noreferrer noopener">
-   <img class="gallery__image"  src="${preview}" alt="${description}" />
- </a>;
-    </li>`;
+      return `<li><a class="gallery__item" href="${original}" onclick="return false" rel="noreferrer noopener">
+   <img class="gallery__image"  src="${preview}" alt="${description}"  />
+ </a></li>`;
     })
     .join("");
 }
+const galleryImg = document.querySelectorAll(".gallery__image");
 
-let ligthbox = new SimpleLightbox(".gallery__item");
+function createImgTitle(el) {
+  for (let i = 0; i < galleryImg.length; i += 1) {
+    const imgRef = galleryImg[i];
+    imgRef.title = imgRef.alt;
+  }
+}
+createImgTitle(galleryImg);
+
+const ligthbox = new SimpleLightbox(".gallery__item");
+// console.log(galleryImg);
