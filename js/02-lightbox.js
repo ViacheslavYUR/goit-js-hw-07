@@ -20,7 +20,7 @@ function createGalleryItemsMarkup(img) {
 }
 const galleryImg = document.querySelectorAll(".gallery__image");
 
-function createImgTitle(el) {
+function createImgTitle() {
   for (let i = 0; i < galleryImg.length; i += 1) {
     const imgRef = galleryImg[i];
     imgRef.title = imgRef.alt;
@@ -28,5 +28,7 @@ function createImgTitle(el) {
 }
 createImgTitle(galleryImg);
 
-const ligthbox = new SimpleLightbox(".gallery__item");
+const ligthbox = new SimpleLightbox(".gallery__item", {
+  captionDelay: 250,
+});
 // console.log(galleryImg);
