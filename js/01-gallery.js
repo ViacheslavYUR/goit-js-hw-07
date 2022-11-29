@@ -34,7 +34,7 @@ function imgGalleryclick(e) {
   const parentImgEl = e.target.closest(".gallery__link");
 
   parentImgEl.href = e.target.dataset.source;
-  console.log(parentImgEl);
+//   console.log(parentImgEl);
 
   openModalWindow(parentImgEl);
 }
